@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My first slider</title>
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<div id="carousel" class="carousel">
+			<ul id="slides" class="slides">
+			    <li class="slide active">
+			    </li>
+			    <li class="slide">
+			    </li>
+			    <li class="slide">
+			    </li>
+			    <li class="slide">
+			    </li>
+			    <li class="slide">
+			    </li>
+			</ul>
+			<div class="controls">
+				<span class="controls-pause" id="pause">
+					<i class="far fa-play-circle"></i>
+				</span>
+				<span class="controls-prev" id="previous">
+					<i class="fas fa-angle-left"></i>
+				</span>
+				<span class="controls-next" id="next">
+					<i class="fas fa-angle-right"></i>
+				</span>
+			</div>
+			<ol id="indicators-container" class="indicators-container">
+				<li class="indicator active" data-slide-to="0"></li>
+				<li class="indicator" data-slide-to="1"></li>
+				<li class="indicator" data-slide-to="2"></li>
+				<li class="indicator" data-slide-to="3"></li>
+				<li class="indicator" data-slide-to="4"></li>
+			</ol>
+		</div>
+	</div>
+	<script src="main.js"></script>
+</body>
+</html>
