@@ -59,7 +59,6 @@ body{
 }
 .controls{
 	z-index: 100;
-	margin-top: 50px;
 }
 .control-pause, .control-prev, .control-next {
     position: absolute;
@@ -97,7 +96,10 @@ body{
     -webkit-transition: opacity 0.25s ease-out;
     -o-transition: opacity 0.25s ease-out;
     transition: opacity 0.25s ease-out;
-    opacity: 0;
+    opacity: 1;
+    bottom: 300px;
+    top: 300px;
+
 }
 .fa-angle-left, .fa-angle-right {
     z-index: 2;
@@ -117,6 +119,7 @@ body{
     opacity: 1;
     text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
 }
+
 .controls-next{
 	right: 0;
 	width: 10%;
@@ -144,6 +147,7 @@ i{
     outline: none;
     background: none;
     background-clip: padding-box;
+    z-index: 1000;
 }
 .indicator.active {
     border-color: #ffffff;
@@ -156,7 +160,7 @@ ol{
 }
 .indicators-container {
     position: absolute;
-    z-index: 1;
+    z-index: 1000;
     bottom: 0;
     display: -webkit-box;
     display: -ms-flexbox;
