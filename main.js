@@ -12,6 +12,13 @@ let slidesCount = slides.length;
 let intervalID = null;
 let isPlaying = true;
 
+const LEFT_ARROW = 'ArrowLeft';
+const RIGHT_ARROW = 'ArrowRight';
+const SPACE = 'Space';
+const FA_PAUSE ='<i class="far fa-pause-circle"></i>';
+const FA_PLAY = '<i class="far fa-play-circle"></i>';
+
+
 function goToSlide(n){
     slides[currentSlide].classList.toggle('active');
     indicators[currentSlide].classList.toggle('active');
@@ -40,14 +47,14 @@ function nextSlide(){
 
 function play(){
     intervalID = setInterval(goToNext, interval);
-    pauseBtn.innerHTML = '<i class="far fa-pause-circle"></i>'; 
+    pauseBtn.innerHTML = FA_PAUSE; 
     isPlaying = true;
 }
 
 function pause(){
     if(isPlaying){
     clearInterval(intervalID);
-    pauseBtn.innerHTML = '<i class="far fa-play-circle"></i>'; 
+    pauseBtn.innerHTML = FA_PLAY;
     isPlaying = false; 
   }
 }
@@ -67,9 +74,9 @@ function indicate(e){
 }
 
 function pressKey(e){
-    if(e.code ==='ArrowLeft') prevSlide();
-    if(e.code ==='ArrowRight') nextSlide();
-    if(e.code === 'Space') pausePlay();
+    if(e.code === LEFT_ARROW) prevSlide();
+    if(e.code === RIGHT_ARROW) nextSlide();
+    if(e.code === SPACE) pausePlay();
 }
 
 
