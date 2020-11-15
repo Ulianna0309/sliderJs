@@ -1,3 +1,4 @@
+const carousel = document.querySelector('#carousel');
 const slides = document.querySelectorAll('.slide');
 const indicatorsContainer = document.querySelector('.indicators-container');
 const indicators = document.querySelectorAll('.indicator');
@@ -11,6 +12,8 @@ let interval = 2000;
 let slidesCount = slides.length;
 let intervalID = null;
 let isPlaying = true;
+let swipeStartX = null;
+let swipeEndX = null;
 
 const LEFT_ARROW = 'ArrowLeft';
 const RIGHT_ARROW = 'ArrowRight';
@@ -78,7 +81,14 @@ function pressKey(e){
     if(e.code === RIGHT_ARROW) nextSlide();
     if(e.code === SPACE) pausePlay();
 }
-
+function swipeStart(e){
+ swipeStartX = e.changedTouches[0].pageX;
+}
+function swipeEnd(e){
+ swipeEndX = e.changedTouches[0].pageX;
+ if(swipeStartX - swipeEndX > 100) nextSlide();
+ if(swipeStartX - swipeEndX < -100) prevSlide();
+ }
 
 
 pauseBtn.addEventListener('click', pausePlay);
@@ -86,6 +96,7 @@ prevBtn.addEventListener('click', prevSlide);
 nextBtn.addEventListener('click', nextSlide);
 indicatorsContainer.addEventListener('click', indicate);
 document.addEventListener('keydown', pressKey);
-
+carousel.addEventListener('touchstart', swipeStart);
+carousel.addEventListener('touchend', swipeEnd);
 intervalID = setInterval(goToNext, interval);
 
